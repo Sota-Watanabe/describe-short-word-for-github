@@ -1,13 +1,13 @@
 // import { printLine } from './modules/print';
 
 const searchWithExcludeKeyword = function () {
-  const keyword = document.querySelector('.exclude-input').value
+  const keyword = document.querySelector('.exclude-input').value;
   let href = new URL(location.href);
   href.searchParams.set('exclude_keyword', keyword);
-  location.href = href.toString()
-}
+  location.href = href.toString();
+};
 
-const refreshId = setInterval(function() {
+const refreshId = setInterval(function () {
   let li = document.createElement('li');
   const html = `
   <li class="Filter__FilterItem-sc-13ch3ga-1 iEkNwU">
@@ -19,16 +19,17 @@ const refreshId = setInterval(function() {
   </mer-accordion>
   </li>
   `;
-  
+
   li.innerHTML = html;
   let list = document.querySelector('#search-filter ul');
-  if(list && !document.querySelector('.exclude-input')) {
+  if (list && !document.querySelector('.exclude-input')) {
     list.append(li);
     const btn = document.getElementById('mySearchButton');
     btn.addEventListener('click', searchWithExcludeKeyword);
     const keyword = new URL(location.href).searchParams.get('exclude_keyword');
     if (keyword) {
-      document.querySelector('.exclude-input').value = decodeURIComponent(keyword);
+      document.querySelector('.exclude-input').value =
+        decodeURIComponent(keyword);
     }
     clearInterval(refreshId);
   }
