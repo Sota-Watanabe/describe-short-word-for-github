@@ -1,12 +1,12 @@
 {
   "manifest_version": 3,
   "version": "0.0.1",
-  "name": "メルカリ除外キーワード",
-  "description": "メルカリで除外キーワードで検索できるようにします",
+  "name": "describe-short-word-for-github",
+  "description": "Explain abbreviations on GitHub",
   "background": {
     "service_worker": "background.bundle.js"
   },
-  "host_permissions": ["https://jp.mercari.com/"],
+  "host_permissions": ["https://github.com/*"],
   "icons": {
     "128": "icon-128.png"
   },
