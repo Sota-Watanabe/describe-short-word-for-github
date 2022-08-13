@@ -3,6 +3,12 @@
   "version": "0.0.1",
   "name": "describe-short-word-for-github",
   "description": "Explain abbreviations on GitHub",
+  "content_scripts": [
+    {
+      "matches": ["https://github.com/*"],
+      "css": ["content.styles.css"]
+    }
+  ],
   "background": {
     "service_worker": "background.bundle.js"
   },

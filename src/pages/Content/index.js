@@ -1,36 +1,16 @@
-// import { printLine } from './modules/print';
-
-const searchWithExcludeKeyword = function () {
-  const keyword = document.querySelector('.exclude-input').value;
-  let href = new URL(location.href);
-  href.searchParams.set('exclude_keyword', keyword);
-  location.href = href.toString();
+const searchShortWord = (paragraph) => {
+  const SearchString = '(' + 'WIP' + ')';
+  const RegularExp = new RegExp(SearchString, 'g');
+  const ReplaceString =
+    '<span class="wip">$1</span><span>(Work In Progress, 対応中)</span>';
+  const ResString = paragraph.replace(RegularExp, ReplaceString);
+  console.log(`ResString=${ResString}`);
+  return ResString;
 };
 
-const refreshId = setInterval(function () {
-  let li = document.createElement('li');
-  const html = `
-  <li class="Filter__FilterItem-sc-13ch3ga-1 iEkNwU">
-  <mer-accordion label="除外キーワード" expanded="" data-testid="除外キーワード" mer-defined="" data-js-focus-visible="">
-    <mer-checkbox-group class="mer-spacing-b-16" cols="2" mer-defined="">
-    <input type="search" class="exclude-input" placeholder="" aria-label="除外キーワードを入力" autocomplete="off">
-    <button id="mySearchButton" type='button'>検索</button>
-    </mer-checkbox-group>
-  </mer-accordion>
-  </li>
-  `;
-
-  li.innerHTML = html;
-  let list = document.querySelector('#search-filter ul');
-  if (list && !document.querySelector('.exclude-input')) {
-    list.append(li);
-    const btn = document.getElementById('mySearchButton');
-    btn.addEventListener('click', searchWithExcludeKeyword);
-    const keyword = new URL(location.href).searchParams.get('exclude_keyword');
-    if (keyword) {
-      document.querySelector('.exclude-input').value =
-        decodeURIComponent(keyword);
-    }
-    clearInterval(refreshId);
-  }
-}, 300);
+console.log('refreshId');
+let paragraph_list = document.querySelectorAll('.comment-body > p');
+console.log(JSON.stringify(paragraph_list));
+for (const paragraph of paragraph_list) {
+  paragraph.innerHTML = searchShortWord(paragraph.innerHTML);
+}
