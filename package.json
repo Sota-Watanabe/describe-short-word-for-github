@@ -1,11 +1,11 @@
 {
-  "name": "mercari-chrome-extension",
-  "version": "4.2.0",
-  "description": "A chrome extension boilerplate built with React 17, Webpack 5, and Webpack Dev Server 4",
+  "name": "describe-short-word-for-github",
+  "version": "0.0.1",
+  "description": "Explain abbreviations on GitHub",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/thr3a/mercari-chrome-extension.git"
+    "url": "git@github.com:Sota-Watanabe/describe-short-word-for-github.git"
   },
   "scripts": {
     "build": "node utils/build.js",
